@@ -1,0 +1,310 @@
+<html>
+<head>
+<title>XYZ_Bank.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+.s4 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+XYZ_Bank.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">org.asynchttpclient.util.Assertions</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.Alert</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.By</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.WebDriver</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.WebElement</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.chrome.ChromeDriver</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.chrome.ChromeOptions</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.support.ui.ExpectedConditions</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.support.ui.WebDriverWait</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">java.io.File</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.sql.Driver</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.time.Duration</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.time.Instant</span><span class="s0">;</span>
+
+<span class="s0">import static </span><span class="s1">java.sql.Driver.*</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">XYZ_Bank {</span>
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+
+        <span class="s1">System.setProperty(</span><span class="s2">&quot;webdriver.chrome.driver&quot;</span><span class="s0">,</span><span class="s2">&quot;C:</span><span class="s0">\\</span><span class="s2">Users</span><span class="s0">\\</span><span class="s2">79994</span><span class="s0">\\</span><span class="s2">Downloads</span><span class="s0">\\</span><span class="s2">chromedriver_win32</span><span class="s0">\\</span><span class="s2">chromedriver.exe&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">ChromeDriver driver = </span><span class="s0">new </span><span class="s1">ChromeDriver()</span><span class="s0">;</span>
+
+
+        <span class="s1">driver.get(</span><span class="s2">&quot;https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">10</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">WebElement searchButton = driver.findElement(By.xpath(</span><span class="s2">&quot;/html/body/div/div/div[1]/button[1]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchButton.click()</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">10</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">WebElement searchhButton = driver.findElement(By.xpath(</span><span class="s2">&quot;/html/body/div/div/div[2]/div/div[1]/div[2]/button&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchhButton.click()</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">10</span><span class="s1">))</span><span class="s0">;</span>
+
+
+        <span class="s1">WebElement searchcButton = driver.findElement(By.xpath(</span><span class="s2">&quot;/html/body/div/div/div[2]/div/div[1]/button[1]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">10</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchcButton.click()</span><span class="s0">;</span>
+
+
+        <span class="s1">WebElement searchBox1 = driver.findElement(By.xpath(</span><span class="s2">&quot;/html/body/div/div/div[2]/div/div[2]/div/div/form/div[1]/input&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchBox1.sendKeys(</span><span class="s2">&quot;Zasyadkos&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">WebElement searchBox2 = driver.findElement(By.xpath(</span><span class="s2">&quot;//html/body/div/div/div[2]/div/div[2]/div/div/form/div[2]/input&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchBox2.sendKeys(</span><span class="s2">&quot;Dmitriis&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">WebElement searchBox3 = driver.findElement(By.xpath(</span><span class="s2">&quot;/html/body/div/div/div[2]/div/div[2]/div/div/form/div[3]/input&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchBox3.sendKeys(</span><span class="s2">&quot;15162342&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+
+        <span class="s1">WebElement searchcButton4 = driver.findElement(By.xpath(</span><span class="s2">&quot;/html/body/div/div/div[2]/div/div[2]/div/div/form/button&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchcButton4.click()</span><span class="s0">;</span>
+
+
+        <span class="s4">//Подтверждение ОК после создания пользователя</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.switchTo().alert().accept()</span><span class="s0">;</span>
+
+        <span class="s4">//Открыть счет для нового пользователя</span>
+
+        <span class="s1">WebElement searchcButton5 = driver.findElement(By.xpath(</span><span class="s2">&quot;/html/body/div/div/div[2]/div/div[1]/button[2]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchcButton5.click()</span><span class="s0">;</span>
+
+        <span class="s4">//Выбор пользователя</span>
+
+        <span class="s1">WebElement searchcButton6 = driver.findElement(By.xpath(</span><span class="s2">&quot;//*[@id=</span><span class="s0">\&quot;</span><span class="s2">userSelect</span><span class="s0">\&quot;</span><span class="s2">]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchcButton6.click()</span><span class="s0">;</span>
+
+
+        <span class="s1">WebElement searchcButton7 = driver.findElement(By.xpath(</span><span class="s2">&quot;//*[@id=</span><span class="s0">\&quot;</span><span class="s2">userSelect</span><span class="s0">\&quot;</span><span class="s2">]/option[7]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchcButton7.click()</span><span class="s0">;</span>
+        <span class="s4">//Валюта</span>
+
+        <span class="s1">WebElement searchcButton8 = driver.findElement(By.xpath(</span><span class="s2">&quot;//*[@id=</span><span class="s0">\&quot;</span><span class="s2">currency</span><span class="s0">\&quot;</span><span class="s2">]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchcButton8.click()</span><span class="s0">;</span>
+
+
+        <span class="s1">WebElement searchcButton9 = driver.findElement(By.xpath(</span><span class="s2">&quot;//*[@id=</span><span class="s0">\&quot;</span><span class="s2">currency</span><span class="s0">\&quot;</span><span class="s2">]/option[2]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchcButton9.click()</span><span class="s0">;</span>
+
+
+        <span class="s1">WebElement searchcButton10 = driver.findElement(By.xpath(</span><span class="s2">&quot;/html/body/div/div/div[2]/div/div[2]/div/div/form/button&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchcButton10.click()</span><span class="s0">;</span>
+
+
+        <span class="s4">//Подтверждение ОК после создания пользователя</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.switchTo().alert().accept()</span><span class="s0">;</span>
+
+
+
+        <span class="s4">//Возвращаемся домой</span>
+
+        <span class="s1">WebElement searchcButton11 = driver.findElement(By.xpath(</span><span class="s2">&quot;/html/body/div/div/div[1]/button[1]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchcButton11.click()</span><span class="s0">;</span>
+
+        <span class="s4">//Заходим в аккаунт</span>
+
+
+        <span class="s1">WebElement searchcButton12 = driver.findElement(By.xpath(</span><span class="s2">&quot;/html/body/div/div/div[2]/div/div[1]/div[1]/button&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchcButton12.click()</span><span class="s0">;</span>
+
+
+        <span class="s4">//Выбор пользователя</span>
+
+        <span class="s1">WebElement searchcButton13 = driver.findElement(By.xpath(</span><span class="s2">&quot;//*[@id=</span><span class="s0">\&quot;</span><span class="s2">userSelect</span><span class="s0">\&quot;</span><span class="s2">]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchcButton13.click()</span><span class="s0">;</span>
+
+
+        <span class="s1">WebElement searchcButton14 = driver.findElement(By.xpath(</span><span class="s2">&quot;//*[@id=</span><span class="s0">\&quot;</span><span class="s2">userSelect</span><span class="s0">\&quot;</span><span class="s2">]/option[7]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchcButton14.click()</span><span class="s0">;</span>
+
+        <span class="s4">//Кнопка Логин</span>
+
+        <span class="s1">WebElement searchcButton15 = driver.findElement(By.xpath(</span><span class="s2">&quot;/html/body/div/div/div[2]/div/form/button&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchcButton15.click()</span><span class="s0">;</span>
+
+        <span class="s4">//Пополнить счет</span>
+
+        <span class="s1">WebElement searchcButton16 = driver.findElement(By.xpath(</span><span class="s2">&quot;/html/body/div/div/div[2]/div/div[3]/button[2]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchcButton16.click()</span><span class="s0">;</span>
+
+        <span class="s4">//Пополнить счет на 100</span>
+
+        <span class="s1">WebElement searchBox5 = driver.findElement(By.xpath(</span><span class="s2">&quot;/html/body/div/div/div[2]/div/div[4]/div/form/div/input&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchBox5.sendKeys(</span><span class="s2">&quot;100&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+
+
+
+
+        <span class="s4">//Нажать депозит</span>
+
+        <span class="s1">WebElement searchcButton17 = driver.findElement(By.xpath(</span><span class="s2">&quot;/html/body/div/div/div[2]/div/div[4]/div/form/button&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchcButton17.click()</span><span class="s0">;</span>
+
+
+
+        <span class="s4">//Снять деньги со счета</span>
+
+        <span class="s1">WebElement searchcButton18 = driver.findElement(By.xpath(</span><span class="s2">&quot;/html/body/div/div/div[2]/div/div[3]/button[3]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchcButton18.click()</span><span class="s0">;</span>
+
+        <span class="s1">WebElement searchcButton19 = driver.findElement(By.xpath(</span><span class="s2">&quot;/html/body/div/div/div[2]/div/div[4]/div/form/div/input&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">searchcButton19.click()</span><span class="s0">;</span>
+
+
+
+
+
+
+        <span class="s4">//Заходим в транзакции</span>
+
+        <span class="s1">WebElement transactions = driver.findElement(By.xpath(</span><span class="s2">&quot;//body/div[1]/div[1]/div[2]/div[1]/div[3]/button[1]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">transactions.click()</span><span class="s0">;</span>
+
+        <span class="s4">//Жмем резет</span>
+
+        <span class="s1">WebElement reset = driver.findElement(By.xpath(</span><span class="s2">&quot;//button[contains(text(),'Reset')]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">10</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">reset.click()</span><span class="s0">;</span>
+
+        <span class="s4">//Возвращаемся домой</span>
+
+        <span class="s1">WebElement home2 = driver.findElement(By.xpath(</span><span class="s2">&quot;//button[contains(text(),'Home')]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">home2.click()</span><span class="s0">;</span>
+
+        <span class="s4">//Заходим в Банк Менеджер</span>
+
+        <span class="s1">WebElement BNKMNGLOG = driver.findElement(By.xpath(</span><span class="s2">&quot;//button[contains(text(),'Bank Manager Login')]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">10</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">BNKMNGLOG.click()</span><span class="s0">;</span>
+
+        <span class="s4">//Пользователи</span>
+
+
+        <span class="s1">WebElement Customers = driver.findElement(By.xpath(</span><span class="s2">&quot;//body/div[1]/div[1]/div[2]/div[1]/div[1]/button[3]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">Customers.click()</span><span class="s0">;</span>
+
+
+
+        <span class="s4">//Удалить последнего пользователя</span>
+
+        <span class="s1">WebElement DELETECSTMR = driver.findElement(By.xpath(</span><span class="s2">&quot;//tbody/tr[6]/td[5]/button[1]&quot;</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(</span><span class="s3">3</span><span class="s1">))</span><span class="s0">;</span>
+
+        <span class="s1">DELETECSTMR.click()</span><span class="s0">;</span>
+
+
+        <span class="s4">//Выйти из браузера</span>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="s1">}</span>
+
+
+
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
