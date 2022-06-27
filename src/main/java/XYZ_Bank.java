@@ -17,257 +17,126 @@ import static java.sql.Driver.*;
 
 public class XYZ_Bank {
     public static void main(String[] args) {
-
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\79994\\Downloads\\chromedriver_win32\\chromedriver.exe");
-        ChromeDriver driver = new ChromeDriver();
-
-
-        driver.get("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
-
-
+        ChromeDriver driver = setUpChromeDriver();
 
         //Выбрать Банк менеджер логин
-
-
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         WebElement BankManagerLogin = driver.findElement(By.xpath("//*[.='Bank Manager Login']"));
-
         BankManagerLogin.click();
 
-
-
         //Добавить пользователя
-
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
         WebElement AddCustomer = driver.findElement(By.xpath("//*[@ng-click='addCust()']"));
-
         AddCustomer.click();
 
-
-
         //Создать пользователя (заполненить данные)
-
-
         WebElement FirstName = driver.findElement(By.xpath("//*[@ng-model='fName']"));
-
         FirstName.sendKeys("Zasyadko");
-
         WebElement LastName = driver.findElement(By.xpath("//*[@ng-model='lName']"));
-
         LastName.sendKeys("Dmitrii");
-
         WebElement PostCode = driver.findElement(By.xpath("//*[@ng-model='postCd']"));
-
         PostCode.sendKeys("4815162342");
-
         WebElement AddCustomer1 = driver.findElement(By.xpath("//*[text()='Add Customer']"));
-
         AddCustomer1.click();
 
-
-
         //Подтверждить Алерт
-
         driver.switchTo().alert().accept();
-
-
 
         //Открыть счет для нового пользователя
-
-
         WebElement OpenAccount = driver.findElement(By.xpath("//*[@ng-click='openAccount()']"));
-
         OpenAccount.click();
 
-
-
-        //Выбор пользователя
-
+        //Выбрать пользователя
         WebElement ClickCustomer = driver.findElement(By.xpath("//*[@ng-model='custId']"));
-
         ClickCustomer.click();
-
-
-        WebElement  ClickUser = driver.findElement(By.xpath("//*[@value='6']"));
-
+        WebElement ClickUser = driver.findElement(By.xpath("//*[@value='6']"));
         ClickUser.click();
 
-
-
-        //Валюта
-
+        //Выбрать валюту доллар и подтвердить
         WebElement ClickCurrency = driver.findElement(By.xpath("//*[@ng-model='currency']"));
-
         ClickCurrency.click();
-
-
         WebElement ClickDollar = driver.findElement(By.xpath("//*[@value='Dollar']"));
-
         ClickDollar.click();
-
-
         WebElement ClickProcess = driver.findElement(By.xpath("//*[@type='submit']"));
-
         ClickProcess.click();
 
-
         //Подтвердить Алерт
-
         driver.switchTo().alert().accept();
 
-
-
-        //Возвращаемся домой
-
+        //Ввернуться домой
         WebElement BackHome = driver.findElement(By.xpath("//*[@ng-click='home()']"));
-
         BackHome.click();
 
-
-
-        //Заходим в аккаунт
-
+        //Зайти в аккаунт
         WebElement CustomerLogin = driver.findElement(By.xpath("//*[@ng-click='customer()']"));
-
         CustomerLogin.click();
 
-
-
-        //Выбор пользователя
-
+        //Выбрать пользователя
         WebElement YourName = driver.findElement(By.xpath("//*[@ng-model='custId']"));
-
         YourName.click();
-
-
         WebElement UserName = driver.findElement(By.xpath("//option[@value='6']"));
-
         UserName.click();
 
-
-
         //Нажать кнопку Логин
-
         WebElement LoginClick = driver.findElement(By.xpath("//*[text()='Login']"));
-
         LoginClick.click();
 
-
-
-        //Пополнить счет
-
+        //Операция с пополнением
         WebElement DepositButton = driver.findElement(By.xpath("//*[@ng-click='deposit()']"));
-
         DepositButton.click();
 
-
-
-        //Пополнить Депозит на 100
-
+        //Пополнить Депозит на 100 долларов
+        WebElement BalanceDiv = driver.findElement(By.xpath("//*[text()='Account Number : ']"));
         WebElement AmountDeposit = driver.findElement(By.xpath("//*[text()='Amount to be Deposited :']/following-sibling::input"));
-
         AmountDeposit.sendKeys("100");
 
-
-
-        //Нажать депозит
-
+        //Нажать кнопку депозит
         WebElement DepostiClick = driver.findElement(By.xpath("//*[text()='Deposit']"));
-
         DepostiClick.click();
 
 
-
-        //Снять 100 со счета
-
+        //Снять 50 долларов со счета
         WebElement WithDrawlButton = driver.findElement(By.xpath("//*[@ng-click='withdrawl()']"));
-
         WithDrawlButton.click();
-
         WebElement AmountWithDrawn = driver.findElement(By.xpath("//*[text()='Amount to be Withdrawn :']/following-sibling::input"));
-
         AmountWithDrawn.sendKeys("50");
-
         WebElement WithDrawClick = driver.findElement(By.xpath("//*[text()='Withdraw']"));
-
         WithDrawClick.click();
 
 
-        //Заходим в транзакции
-
+        //Зайти в транзакции
         WebElement Transactions = driver.findElement(By.xpath("//*[@ng-click='transactions()']"));
-
         Transactions.click();
 
-
-
-        //Жмем очистить список транзакций
-
+        //Нажать очистить список транзакций
         WebElement Reset = driver.findElement(By.xpath("//*[@ng-click='reset()']"));
-
         Reset.click();
 
-
-
-
-        //Возвращаемся домой
-
+        //Вернуться домой
         WebElement Home = driver.findElement(By.xpath("//button[contains(text(),'Home')]"));
-
         Home.click();
 
-
-
-        //Заходим в Банк Менеджер
-
+        //Зайти в Банк Менеджер
         WebElement BankManagerLogin2 = driver.findElement(By.xpath("//button[contains(text(),'Bank Manager Login')]"));
-
         BankManagerLogin2.click();
 
-
-
-        //Заходим в Пользователей
-
-
+        //Зайти в меню пользователей
         WebElement Customers = driver.findElement(By.xpath("//*[@ng-class='btnClass3']"));
-
         Customers.click();
 
-
-
         //Удалить последнего пользователя
-
         WebElement DeleteCustomer = driver.findElement(By.xpath("(//td//button)[last()]"));
-
         DeleteCustomer.click();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
 
+    private static ChromeDriver setUpChromeDriver() {
+        String driverPath = "chromedriver.exe";
+        System.setProperty("webdriver.chrome.driver", driverPath);
+        ChromeDriver driver = new ChromeDriver();
+        driver.get("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
+        return driver;
 
+    }
 }
+
