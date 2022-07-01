@@ -49,7 +49,7 @@ public class XYZ_Bank {
         //Выбрать пользователя
         WebElement ClickCustomer = driver.findElement(By.xpath("//*[@ng-model='custId']"));
         ClickCustomer.click();
-        WebElement ClickUser = driver.findElement(By.xpath("//*[@value='6']"));
+        WebElement ClickUser = driver.findElement(By.xpath("(//*[@ng-repeat='cust in Customers'])[last()]"));
         ClickUser.click();
 
         //Выбрать валюту доллар и подтвердить
@@ -85,14 +85,23 @@ public class XYZ_Bank {
         WebElement DepositButton = driver.findElement(By.xpath("//*[@ng-click='deposit()']"));
         DepositButton.click();
 
-        //Пополнить Депозит на 100 долларов
+        //Пополнить Депозит на 100
         WebElement BalanceDiv = driver.findElement(By.xpath("//*[text()='Account Number : ']"));
+        WebElement ChildBalanceText = BalanceDiv.findElements(By.xpath("//*[text()='Account Number : ']/child::strong")).get(1);
+        String balanceBefore = ChildBalanceText.getText();
         WebElement AmountDeposit = driver.findElement(By.xpath("//*[text()='Amount to be Deposited :']/following-sibling::input"));
         AmountDeposit.sendKeys("100");
 
-        //Нажать кнопку депозит
+        //Нажать депозит
         WebElement DepostiClick = driver.findElement(By.xpath("//*[text()='Deposit']"));
         DepostiClick.click();
+
+        //Проверяем что баланс изменился
+        String BalanceAfter = BalanceDiv.findElements(By.xpath("//*[text()='Account Number : ']/child::strong")).get(1).getText();
+        int sum = Integer.parseInt(BalanceAfter) - Integer.parseInt(balanceBefore);
+        if (sum != 100) {
+            throw new RuntimeException("asdfa");
+        }
 
 
         //Снять 50 долларов со счета
@@ -127,6 +136,10 @@ public class XYZ_Bank {
         //Удалить последнего пользователя
         WebElement DeleteCustomer = driver.findElement(By.xpath("(//td//button)[last()]"));
         DeleteCustomer.click();
+
+        ChromeOptions options = new ChromeOptions();
+        driver = new ChromeDriver(options);
+        driver.quit();
     }
 
 
@@ -136,6 +149,9 @@ public class XYZ_Bank {
         ChromeDriver driver = new ChromeDriver();
         driver.get("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
         return driver;
+
+
+
 
     }
 }
