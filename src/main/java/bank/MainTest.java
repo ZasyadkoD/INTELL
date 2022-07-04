@@ -41,7 +41,7 @@ public class MainTest extends BaseTestUtils {
         //8) Удалить последнего пользователя
         deleteLastUser();
 
-        int a = 0;
+
 
     }
 
