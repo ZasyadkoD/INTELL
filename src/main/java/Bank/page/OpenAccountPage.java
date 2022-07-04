@@ -1,9 +1,7 @@
 package bank.page;
-
 import com.codeborne.selenide.SelenideElement;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-
 import static bank.page.AddCustomerPage.FIRST_NAME;
 import static bank.page.AddCustomerPage.LAST_NAME;
 import static com.codeborne.selenide.Selenide.$x;

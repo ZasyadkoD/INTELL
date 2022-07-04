@@ -13,10 +13,7 @@ public class DepositPage {
      private static final SelenideElement AMOUNT_DEPOSIT = $x("//*[text()='Amount to be Deposited :']/following-sibling::input");
      private static final SelenideElement CLICK_ON_DEPOSIT_BUTTON = $x("//*[text()='Deposit']");
 
-
-    //private static final SelenideElement depositSuccessful = $x("//span[text()='Deposit Successful']");//
-
-    public static void depositButton() {
+     public static void depositButton() {
         DEPOSIT_BUTTON.click();
     }
     public static void clickOnamountDeposit(String first){

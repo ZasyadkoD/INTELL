@@ -14,9 +14,6 @@ public class WithdrawPage {
     private static final SelenideElement AMOUNT_WITHDRAW = $x("//*[text()='Amount to be Withdrawn :']/following-sibling::input");
     private static final SelenideElement CLICK_ON_WITHDRAW_BUTTON = $x("//*[text()='Withdraw']");
 
-
-
-
     public static void withdrawButton() {
         WITHDRAW_BUTTON.click();
     }
