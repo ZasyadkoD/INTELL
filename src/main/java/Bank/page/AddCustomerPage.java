@@ -1,10 +1,8 @@
 package bank.page;
+
 import com.codeborne.selenide.SelenideElement;
-import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
-import static bank.MainTest.FIRST_NAME;
-import static bank.MainTest.LAST_NAME;
 import static com.codeborne.selenide.Selenide.$x;
 
 /**
@@ -13,8 +11,8 @@ import static com.codeborne.selenide.Selenide.$x;
 public class AddCustomerPage {
 
     private static final SelenideElement ADD_CUSTOMER = $x("//*[@ng-click='addCust()']");
-    private static final SelenideElement FIRST_NAME = $x("//*[@ng-model='fName']");
-    private static final SelenideElement LAST_NAME = $x("//*[@ng-model='lName']");
+    static final SelenideElement FIRST_NAME = $x("//*[@ng-model='fName']");
+    static final SelenideElement LAST_NAME = $x("//*[@ng-model='lName']");
     private static final SelenideElement POST_CODE = $x("//*[@ng-model='postCd']");
     private static final SelenideElement ADD_CUSTOMER_BUTTON = $x("//*[text()='Add Customer']");
 

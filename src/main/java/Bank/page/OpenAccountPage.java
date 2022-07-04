@@ -1,10 +1,11 @@
 package bank.page;
-import com.codeborne.selenide.Condition;
+
 import com.codeborne.selenide.SelenideElement;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import static bank.MainTest.FIRST_NAME;
-import static bank.MainTest.LAST_NAME;
+
+import static bank.page.AddCustomerPage.FIRST_NAME;
+import static bank.page.AddCustomerPage.LAST_NAME;
 import static com.codeborne.selenide.Selenide.$x;
 /**
  * Добавляем недавно созданного пользователя и выбираем валюту (Доллар)
@@ -26,11 +27,10 @@ public class OpenAccountPage {
         USER.click();
     }
     public static void clickAndCheckLastUser() {
-        Assert.assertTrue("Name of created account doesn't much!", LAST_USER.getText().equals(FIRST_NAME + " " + LAST_NAME));
-        LAST_USER.click();
+                LAST_USER.click();
+
     }
     public static void clickOnCurrency() {
-        Assert.assertTrue("Wrong",CHOOSE_CURRENCY.getValue() );
                 CURRENCY.click();    }
     public static void clickOnChooseCurrency() {
         CHOOSE_CURRENCY.click();    }

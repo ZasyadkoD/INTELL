@@ -1,8 +1,7 @@
 package bank.page;
 
 import com.codeborne.selenide.SelenideElement;
-import org.junit.Assert;
-import static bank.MainTest.AMOUNT_TO_BE_DEPOSIT;
+
 import static com.codeborne.selenide.Selenide.$x;
 
 /**
@@ -15,7 +14,7 @@ public class DepositPage {
      private static final SelenideElement CLICK_ON_DEPOSIT_BUTTON = $x("//*[text()='Deposit']");
 
 
-    //private static final SelenideElement depositSuccessful = $x("//span[text()='Deposit Successful']");
+    //private static final SelenideElement depositSuccessful = $x("//span[text()='Deposit Successful']");//
 
     public static void depositButton() {
         DEPOSIT_BUTTON.click();

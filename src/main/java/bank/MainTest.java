@@ -3,22 +3,20 @@ package Bank; /**
  * Имя, Фамилия, Посткод, Депозит и Снятие денег
  */
 
-import Bank.*;
+import bank.BaseTestUtils;
+import bank.page.*;
 import org.junit.Test;
-public class MainTest extends BaseClass {
+public class MainTest extends BaseTestUtils {
 
-    private final static String Base_URL = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login";
-    private final static String FirstName = "Dimitrii";
-    private final static String LastName ="Zasyadko";
-    private final static String PostCode = "1507";
-    private final static String AmountToBeDeposit = "100";
-    private final static String AmountToBeWithDraw = "50";
-
-    //Пишем тело теста, где выполняется логика указания переменных и сравнения чего-то с чем-то (проверка теста);
-    //Логика взаимодействия с элементами (нажать перейти в Пейдж классе) Классы со страницами, каждой странице пренадлежит свой класс.
+    private final static String BASE_URL = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login";
+    private final static String FIRST_NAME = "Dimitrii";
+    private final static String LAST_NAME ="Zasyadko";
+    private final static String POST_CODE = "1507";
+    private final static String AMOUNT_TO_BE_DEPOSIT = "100";
+    private final static String AMOUNT_TO_BE_WITH_DRAW = "50";
 
     @Test
-    public void check() {
+    public void MainTest() {
         //1) Главная страница сайта
         homePage();
 
@@ -43,28 +41,50 @@ public class MainTest extends BaseClass {
         //8) Удалить последнего пользователя
         deleteLastUser();
 
-
         int a = 0;
 
     }
 
-    private void deleteLastUser() {
-        DeleteLastUser.setDeleteLastUser();
-        DeleteLastUser.customers();
-        DeleteLastUser.deleteLastUser();
-    }
-
     private void homePage() {
-        HomePage Homepage = new HomePage(Base_URL);  //Перейти на главную страницу сайта по ссылке
-        Homepage.clickOnBankManager();       //Нажать на кнопку Банк Менеджер
+        HomePage Homepage = new HomePage(BASE_URL);
+        Homepage.clickOnBankManager();
     }
 
     private void addCustomer() {
-        AddCustomerPage.clickOnAddCustomer();    //Нажать на кнопку Создать покупателя
-        AddCustomerPage.firstName(FirstName);    //Написать Имя Dmitrii
-        AddCustomerPage.lastName(LastName);      //Написать Фамилию Zasyadko
-        AddCustomerPage.postCode(PostCode);      //Написать Посткод 1507
-        AddCustomerPage.clickaddCustomerButton(); //Нажать на создание и подтвердить Алерт
+        AddCustomerPage.clickOnAddCustomer();
+        AddCustomerPage.firstName(FIRST_NAME);
+        AddCustomerPage.lastName(LAST_NAME);
+        AddCustomerPage.postCode(POST_CODE);
+        AddCustomerPage.clickAddCustomerButton();
+    }
+    private void openAccount() {
+        OpenAccountPage.clickOnOpenAccount();
+        OpenAccountPage.clickAndCheckLastUser();
+        OpenAccountPage.clickOnUser();
+        OpenAccountPage.clickOnCurrency();
+        OpenAccountPage.clickOnChooseCurrency();
+        OpenAccountPage.clickOnProcessButton();
+        OpenAccountPage.clickOnHomeButton();
+    }
+
+
+
+    private void customerLogin() {
+        CustomerLoginPage.clickOnCustomerLogin();
+        CustomerLoginPage.clickOnYourName();
+        CustomerLoginPage.clickOnLastUser();
+        CustomerLoginPage.clickOnloginButton();
+    }
+    private void deposit() {
+        DepositPage.depositButton();
+        DepositPage.clickOnamountDeposit(AMOUNT_TO_BE_DEPOSIT);
+        DepositPage.ClickOndepositButton();
+    }
+
+    private void withdraw() {
+        WithdrawPage.withdrawButton();
+        WithdrawPage.clickOnamountWithdraw(AMOUNT_TO_BE_WITH_DRAW);
+        WithdrawPage.ClickOnWithdrawButton();
     }
 
     private void transactions() {
@@ -73,34 +93,25 @@ public class MainTest extends BaseClass {
         TransactionsPage.BackHome();
     }
 
-    private void withdraw() {
-        WithDrawPage.withdrawButton();
-        WithDrawPage.clickOnamountWithdraw(AmountToBeWithDraw);
-        WithDrawPage.ClickOnWithdrawButton();
+    private void deleteLastUser() {
+        DeleteLastUser.setDeleteLastUser();
+        DeleteLastUser.customers();
+        DeleteLastUser.deleteLastUser();
     }
 
-    private void deposit() {
-        DepositPage.depositButton();
-        DepositPage.clickOnamountDeposit(AmountToBeDeposit);
-        DepositPage.ClickOndepositButton();
-    }
 
-    private void customerLogin() {
-        CustomerLoginPage.clickOnCustomerLogin();
-        CustomerLoginPage.clickOnYourName();
-        CustomerLoginPage.clickOnLastUser();
-        CustomerLoginPage.clickOnloginButton();
-    }
 
-    private void openAccount() {
-        OpenAccountPage.clickonopenAccount();
-        OpenAccountPage.clickOnUser();
-        OpenAccountPage.clickonLastUser();
-        OpenAccountPage.clickonCurrency();
-        OpenAccountPage.clickOnChooseCurrency();
-        OpenAccountPage.clickOnprocessButton();
-        OpenAccountPage.clickOnHomeButton();
-    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
