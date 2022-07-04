@@ -1,4 +1,4 @@
-package Bank;
+package bank;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
@@ -7,7 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 
 
-abstract public class BaseClass {
+abstract public class BaseTestUtils {
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         Configuration.browser = "chrome";
@@ -15,8 +15,6 @@ abstract public class BaseClass {
         Configuration.browserSize = "1920x1080";
         Configuration.driverManagerEnabled = true;
     }
-
-
 
     @Before
     //До запуска браузера мы будем запускать вебдрайвер
